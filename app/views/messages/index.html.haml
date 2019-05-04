@@ -1,66 +1,56 @@
-!!!
-%html
-  %head
-    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title ChatSpaceProto
-    %meta{content: "authenticity_token", name: "csrf-param"}/
-    %meta{content: "dvZCbsxONrr7pagathf/GHNe8V/SsGC/vWqCFnWAdVXbVWXm9f9OYuapP4OJgj3XSqJuw0MJDquwdIsbzjk+yA==", name: "csrf-token"}/
-    %link{"data-turbolinks-track" => "reload", href: "/assets/application-2f82c62a7612ec80c93af4b8afb77ffcec39f6615209cc44a6bf245204dcd451.css", media: "all", rel: "stylesheet"}/
-    %script{"data-turbolinks-track" => "reload", src: "/assets/application-8edc245abda810768ef3fe3c5173b344b19ab2bd6c346c842d24949e917a271d.js"}
-  %body
-    .flash-box
-    .wrapper
-      .chat-side
-        .side-header
-          %p.side-header__user-name mimimi
-          %ul.user-menu
-            %li.user-menu__edit-user
-              %a{href: "/groups/new"}
-                %i.user-menu__edit-icon.fas.fa-edit
-            %li.user-menu__new-group
-              %a{href: "/users/426/edit"}
-                %i.user-menu__edit-icon.fas.fa-cog.fa-inverse
-        .groups
-          %a{href: "/groups/877/messages"}
-            .group
-              %p.group__group-name アイウエオ
-              %p.group__latest-message aaaaa
-          %a{href: "/groups/845/messages"}
-            .group
-              %p.group__group-name アイウエオ
-              %p.group__latest-message おおおおお
-          %a{href: "/groups/836/messages"}
-            .group
-              %p.group__group-name a
-              %p.group__latest-message おお
-          %a{href: "/groups/816/messages"}
-            .group
-              %p.group__group-name a
-              %p.group__latest-message z
-      .chat-main
-        .main-header
-          .current-group{"data-group_id" => "845"}
-            %h2.current-group__name アイウエオ
-            %ul.member-list
-              Member：
-              %li.member-list__member pompompumart
-              %li.member-list__member aaaa
-              %li.member-list__member mimimi
-          %a{href: "/groups/845/edit"}
-            .main-header__edit-btn Edit
-        .messages
-          .message{"data-message_id" => "2104"}
-            .upper-info
-              %p.upper-info__user mimimi
-              %p.upper-info__date 2019/04/30(Tue) 14:26:45
-            %p.message__text おおおおお
-        .form
-          %form#new_message.new-message{"accept-charset" => "UTF-8", action: "/groups/845/messages", enctype: "multipart/form-data", method:  "post"}
-            %input{name:"utf8", type:"hidden", value:"✓"}/
-            %input{name: "authenticity_token", type: "hidden", value: "o0O4JNenQtsfyzENn2FtoViQNoTlc3GiL7LXyzHxDWV4I7vk+XbGZ91iYpAdiX28XGlj5mgwRAjYxDax4OdzzQ=="}/
-            .input-box
-              %input#message_content.input-box__text{name: "message[content]", placeholder: "  type a message", type: "text"}/
-              %label.image-label{for: "message_image"}
-                %i.far.fa-image
-                %input#message_image.image-label__input{name: "message[image]", type: "file"}/
-            %input.new-message__submit-btn{"data-disable-with" => "Send", name: "commit", type: "submit", value: "Send"}/
+.flash-box
+.wrapper
+.chat-side
+  .side-header
+    %p.side-header__user-name mimimi
+    %ul.user-menu
+      %li.user-menu__edit-user
+        = link_to("/groups/new") do
+          %i.user-menu__edit-icon.fas.fa-edit
+      %li.user-menu__new-group
+        = link_to("/users/426/edit") do
+          %i.user-menu__edit-icon.fas.fa-cog.fa-inverse
+  .groups
+    = link_to ("/groups/877/messages") do
+      .group
+        %p.group__group-name アイウエオ
+        %p.group__latest-message aaaaa
+    = link_to ("/groups/845/messages") do
+      .group
+        %p.group__group-name アイウエオ
+        %p.group__latest-message おおおおお
+    = link_to ("/groups/836/messages") do
+      .group
+        %p.group__group-name a
+        %p.group__latest-message おお
+    = link_to ("/groups/816/messages") do
+      .group
+        %p.group__group-name a
+        %p.group__latest-message z
+.chat-main
+  .main-header
+    .current-group{"data-group_id" => "845"}
+      %h2.current-group__name アイウエオ
+      %ul.member-list
+        Member：
+        %li.member-list__member pompompumart
+        %li.member-list__member aaaa
+        %li.member-list__member mimimi
+    = link_to ("/groups/845/edit") do
+      .main-header__edit-btn Edit
+  .messages
+    .message{"data-message_id" => "2104"}
+      .upper-info
+        %p.upper-info__user mimimi
+        %p.upper-info__date 2019/04/30(Tue) 14:26:45
+      %p.message__text おおおおお
+  .form
+    %form#new_message.new-message{"accept-charset" => "UTF-8", action: "/groups/845/messages", enctype: "multipart/form-data", method:  "post"}
+      %input{name:"utf8", type:"hidden", value:"✓"}/
+      %input{name: "authenticity_token", type: "hidden", value: "o0O4JNenQtsfyzENn2FtoViQNoTlc3GiL7LXyzHxDWV4I7vk+XbGZ91iYpAdiX28XGlj5mgwRAjYxDax4OdzzQ=="}/
+      .input-box
+        %input#message_content.input-box__text{name: "message[content]", placeholder: "  type a message", type: "text"}/
+        %label.image-label{for: "message_image"}
+          %i.far.fa-image
+          %input#message_image.image-label__input{name: "message[image]", type: "file"}/
+      %input.new-message__submit-btn{"data-disable-with" => "Send", name: "commit", type: "submit", value: "Send"}/
