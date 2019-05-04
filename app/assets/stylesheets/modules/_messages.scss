@@ -17,17 +17,14 @@
 .upper-info {
     display: flex;
     margin-bottom: 10px;
-
     &__user {
         color: #434a54;
         font-size: 16px;
         font-weight: bold;
     }
-
     &__date {
             color: #999999;
             font-size: 12px;
-            margin-left: 10px;
-        
+            margin-left: 10px;   
      }
 }

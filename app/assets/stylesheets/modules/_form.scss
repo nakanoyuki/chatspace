@@ -6,7 +6,6 @@
 
 .new-message {
     display: flex;
-
         &__submit-btn {
             width: 100px;
             height: 50px;
@@ -19,11 +18,9 @@
 }
 
 .input-box {
-    
     width:100%;
     position: relative;   
     margin: auto;
-    
      &__text{
         width: 100%;
         height:46px;
@@ -36,9 +33,7 @@
     top: 10px;
     right: 10px;
     cursor: pointer;
-    
      &__input {
-        display: none;
-        
+        display: none;   
     }
 }
