@@ -1,0 +1,58 @@
+a {
+  text-decoration: none;
+}
+
+.flash-box {
+  color: white;
+  font-size: 1rem;
+  font-weight: lighter;
+  text-align: center;
+  width: 100vw;
+  text-decoration: none;
+}
+
+.chat-main {
+  width: calc(100vw - 300px);
+  float: left;
+}
+
+.main-header {
+  height: 100px;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 1px #eee;
+  &__edit-btn {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    margin-top: 30px;
+    border: solid 1px #38aef0;
+    color: #38aef0;
+  }
+}
+
+.current-group {
+  font-size: 20px;
+  color: #333;
+  margin-top: 35px;
+}
+
+.member-list {
+  display: flex;
+  margin-top: 15px;
+  font-size: 12px;
+  color: #999999;
+  &__member {
+    margin-left: 0.3rem;
+  }
+}
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
