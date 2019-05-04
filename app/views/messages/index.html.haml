@@ -10,26 +10,10 @@
       %li.user-menu__new-group
         = link_to("/users/426/edit") do
           %i.user-menu__edit-icon.fas.fa-cog.fa-inverse
-  .groups
-    = link_to ("/groups/877/messages") do
-      .group
-        %p.group__group-name アイウエオ
-        %p.group__latest-message aaaaa
-    = link_to ("/groups/845/messages") do
-      .group
-        %p.group__group-name アイウエオ
-        %p.group__latest-message おおおおお
-    = link_to ("/groups/836/messages") do
-      .group
-        %p.group__group-name a
-        %p.group__latest-message おお
-    = link_to ("/groups/816/messages") do
-      .group
-        %p.group__group-name a
-        %p.group__latest-message z
+  = render 'groups'
 .chat-main
   .main-header
-    .current-group{"data-group_id" => "845"}
+    .current-group{"data-group_id": "845"}
       %h2.current-group__name アイウエオ
       %ul.member-list
         Member：
@@ -39,13 +23,9 @@
     = link_to ("/groups/845/edit") do
       .main-header__edit-btn Edit
   .messages
-    .message{"data-message_id" => "2104"}
-      .upper-info
-        %p.upper-info__user mimimi
-        %p.upper-info__date 2019/04/30(Tue) 14:26:45
-      %p.message__text おおおおお
+    = render 'message'
   .form
-    %form#new_message.new-message{"accept-charset" => "UTF-8", action: "/groups/845/messages", enctype: "multipart/form-data", method:  "post"}
+    %form#new_message.new-message{"accept-charset": "UTF-8", action: "/groups/845/messages", enctype: "multipart/form-data", method:  "post"}
       %input{name:"utf8", type:"hidden", value:"✓"}/
       %input{name: "authenticity_token", type: "hidden", value: "o0O4JNenQtsfyzENn2FtoViQNoTlc3GiL7LXyzHxDWV4I7vk+XbGZ91iYpAdiX28XGlj5mgwRAjYxDax4OdzzQ=="}/
       .input-box
