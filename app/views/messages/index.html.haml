@@ -13,7 +13,7 @@
   = render 'groups'
 .chat-main
   .main-header
-    .current-group{"data-group_id" => "845"}
+    .current-group{"data-group_id": "845"}
       %h2.current-group__name アイウエオ
       %ul.member-list
         Member：
@@ -25,7 +25,7 @@
   .messages
     = render 'message'
   .form
-    %form#new_message.new-message{"accept-charset" => "UTF-8", action: "/groups/845/messages", enctype: "multipart/form-data", method:  "post"}
+    %form#new_message.new-message{"accept-charset": "UTF-8", action: "/groups/845/messages", enctype: "multipart/form-data", method:  "post"}
       %input{name:"utf8", type:"hidden", value:"✓"}/
       %input{name: "authenticity_token", type: "hidden", value: "o0O4JNenQtsfyzENn2FtoViQNoTlc3GiL7LXyzHxDWV4I7vk+XbGZ91iYpAdiX28XGlj5mgwRAjYxDax4OdzzQ=="}/
       .input-box
