@@ -1,16 +1,7 @@
 .flash-box
 .wrapper
 .chat-side
-  .side-header
-    %p.side-header__user-name mimimi
-    %ul.user-menu
-      %li.user-menu__edit-user
-        = link_to("/groups/new") do
-          %i.user-menu__edit-icon.fas.fa-edit
-      %li.user-menu__new-group
-        = link_to("/users/426/edit") do
-          %i.user-menu__edit-icon.fas.fa-cog.fa-inverse
-  = render 'groups'
+  = render 'side_bar'
 .chat-main
   .main-header
     .current-group{"data-group_id": "845"}

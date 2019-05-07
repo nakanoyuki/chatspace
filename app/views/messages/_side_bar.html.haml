@@ -1,0 +1,20 @@
+.chat-side
+  .side-header
+    %p.side-header__user-name
+      = current_user.name
+    %ul.user-menu
+      %li.user-menu__edit-user
+        = link_to new_group_path do
+          %i.user-menu__edit-icon.fas.fa-edit
+      %li.user-menu__new-group
+        = link_to edit_user_path(current_user) do
+          %i.user-menu__edit-icon.fas.fa-cog.fa-inverse
+  .groups
+    .group
+      - current_user.groups.each do |group|
+        = link_to group_messages_path(group) do
+          .group__name
+            = group.name
+          .group__message
+            メッセージはまだありません。
+
