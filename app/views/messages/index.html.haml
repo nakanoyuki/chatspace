@@ -16,12 +16,10 @@
   .messages
     = render 'message'
   .form
-    %form#new_message.new-message{"accept-charset": "UTF-8", action: "/groups/845/messages", enctype: "multipart/form-data", method:  "post"}
-      %input{name:"utf8", type:"hidden", value:"✓"}/
-      %input{name: "authenticity_token", type: "hidden", value: "o0O4JNenQtsfyzENn2FtoViQNoTlc3GiL7LXyzHxDWV4I7vk+XbGZ91iYpAdiX28XGlj5mgwRAjYxDax4OdzzQ=="}/
+    = form_for [@group, @message] do |f|
       .input-box
-        %input#message_content.input-box__text{name: "message[content]", placeholder: "  type a message", type: "text"}/
-        %label.image-label{for: "message_image"}
+        = f.text_field :content, class: 'input__text', placeholder: 'type a message'
+        = f.label :image, class: 'image-label' do
           %i.far.fa-image
-          %input#message_image.image-label__input{name: "message[image]", type: "file"}/
-      %input.new-message__submit-btn{"data-disable-with" => "Send", name: "commit", type: "submit", value: "Send"}/
+          %input#message_image.image-label__input{:name => "message[image]", :type => "file"}/
+      = f.submit 'Send', class: 'new-message__submit-btn'
