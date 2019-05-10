@@ -4,7 +4,7 @@
   = render 'side_bar'
 .chat-main
   .main-header
-    .current-group{"data-group_id": "845"}
+    .current-group
       %h2.current-group__name アイウエオ
       %ul.member-list
         Member：
@@ -14,12 +14,12 @@
     = link_to ("/groups/845/edit") do
       .main-header__edit-btn Edit
   .messages
-    = render 'message'
+    = render @messages
   .form
     = form_for [@group, @message] do |f|
       .input-box
         = f.text_field :content, class: 'input__text', placeholder: 'type a message'
         = f.label :image, class: 'image-label' do
           %i.far.fa-image
-          %input#message_image.image-label__input{:name => "message[image]", :type => "file"}/
+        =f.file_field :image, class: 'message__image'
       = f.submit 'Send', class: 'new-message__submit-btn'

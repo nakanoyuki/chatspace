@@ -6,6 +6,7 @@
 }
 
 .message {
+
   padding-bottom: 40px;
   &__text {
     color: #434a54;
@@ -27,4 +28,8 @@
     font-size: 12px;
     margin-left: 10px;
   }
+}
+
+.message__text{
+  float:both;
 }

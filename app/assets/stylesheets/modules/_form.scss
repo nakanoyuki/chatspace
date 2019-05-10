@@ -30,16 +30,13 @@
 }
 
 .image-label {
+ 
   position: fixed;
   font-size: 1.3rem;
   position: absolute;
   top: 10px;
   right: 10px;
   cursor: pointer;
-}
-
-.image-label__input {
-  display: none;
 }
 
 .new-message__submit-btn {
@@ -50,4 +47,8 @@
   background-color: #38aef0;
   color: white;
   cursor: pointer;
+}
+
+.message__image{
+  display: none;
 }
