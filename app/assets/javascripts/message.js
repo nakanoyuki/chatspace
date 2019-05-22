@@ -1,9 +1,6 @@
 $(function(){
     function buildHTML(json){
-        var image = ""
-        if(json.image !==null){
-          image = `<img class="message__text__image" src="${json.image}"></img>`
-        }
+        var image = json.image?`<img class="message__text__image" src="${json.image}"`:"";
         
         var html = `<div class="message" data-id="${ json.id }">
         <div class="upper-info">
