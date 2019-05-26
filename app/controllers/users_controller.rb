@@ -13,6 +13,16 @@ class UsersController < ApplicationController
         end
     end
 
+
+    def search
+      @users = User.where('name LIKE(?)',"%#{params[:name]}%").where("id NOT IN (#{current_user.id})")
+
+      respond_to do |format|
+        format.html
+        format.json
+      end
+    end
+
     private
 
     def user_params
