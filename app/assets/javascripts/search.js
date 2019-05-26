@@ -33,9 +33,10 @@ function AppendUsermemberList(name,user_id){
 }
 
 
-
+$(function(){
 $("#user-search-field").on("keyup",function() {
     var input = $("#user-search-field").val();
+
     $.ajax({
       type: 'GET',
       url: '/users/search',
@@ -58,7 +59,8 @@ $("#user-search-field").on("keyup",function() {
     .fail(function(){
       alert("ユーザーの検索に失敗しました")
     })
-
+ });
+ 
     $(document).off("click", ".user-search-add");
       $(document).on("click", ".user-search-add", function () {
     
