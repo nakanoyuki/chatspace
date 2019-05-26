@@ -32,47 +32,42 @@ $(function() {
     member_user.append(html);
   }
 
-$(document).on("keyup","#user-search-field",function() {
-    var input = $("#user-search-field").val();
+  $("#user-search-field").on("keyup",function() {
+      var input = $("#user-search-field").val();
 
-    $.ajax({
-      type: 'GET',
-      url: '/users/search',
-      data: { name: input },
-      dataType: 'json'
-    })
+      $.ajax({
+        type: 'GET',
+        url: '/users/search',
+        data: { name: input },
+        dataType: 'json'
+      })
 
-    .done(function(users){
-      $('#user-search-result').empty();
-      if (users.length !==0){
-          users.forEach(function(user){
-              appendUser(user);
-          });
-      }
-      else{
-          appendNoUserToHTML("一致する名前はありません");
-      }
-    })
+      .done(function(users){
+        $('#user-search-result').empty();
+        if (users.length !==0){
+            users.forEach(function(user){
+                appendUser(user);
+            });
+        }
+        else{
+            appendNoUserToHTML("一致する名前はありません");
+        }
+      })
 
-    .fail(function(){
-      alert("ユーザーの検索に失敗しました")
-    })
+      .fail(function(){
+        alert("ユーザーの検索に失敗しました")
+      })
 
-    $(document).off("click", ".user-search-add");
-      $(document).on("click", ".user-search-add", function () {
-       
-    
+  });
+
+    $(document).on("click", ".user-search-add", function () {
       var name = $(this).attr("data-user-name") 
       var user_id = $(this).attr("data-user-id")
-      $(this).parent().remove();
       AppendUsermemberList(name,user_id);
-  
+      $(this).parent().remove();
     });
 
     $(document).on("click", ".user-search-remove", function () {
-    
       $(this).parent().remove();
-    
     });
-  });
-});
+ });
