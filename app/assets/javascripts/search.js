@@ -12,7 +12,6 @@ function appendUser(user){
   </div>`
 
   search_user.append(html);
-  console.log(html)
 }
 
 function appendNoUserToHTML(msg){
