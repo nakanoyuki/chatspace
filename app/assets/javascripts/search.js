@@ -60,6 +60,7 @@ $(document).on("keyup","#user-search-field",function() {
 
     $(document).off("click", ".user-search-add");
       $(document).on("click", ".user-search-add", function () {
+       
     
       var name = $(this).attr("data-user-name") 
       var user_id = $(this).attr("data-user-id")
