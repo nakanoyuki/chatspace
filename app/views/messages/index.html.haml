@@ -4,7 +4,7 @@
   = render 'side_bar'
 .chat-main
   .main-header
-    .current-group
+    .current-group{"data-group_id": "#{@group.id}"}
       %h2.current-group__name 
       = @group.name
       %ul.member-list
