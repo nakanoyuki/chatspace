@@ -9,9 +9,10 @@
       = @group.name
       %ul.member-list
         Member：
-        %li.member-list__member pompompumart
-        %li.member-list__member aaaa
-        %li.member-list__member mimimi
+        %li.member-list__member
+          -@group.group_users.each do |group_user| 
+            = group_user.user.name
+        
     = link_to edit_group_path(@group) do
       .main-header__edit-btn Edit
   .messages
