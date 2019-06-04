@@ -38,7 +38,7 @@ server '52.198.138.201', user: 'ec2-user', roles: %w{app db web}
 # You may pass any option but keep in mind that net/ssh understands a
 # limited set of options, consult the Net::SSH documentation.
 # http://net-ssh.github.io/net-ssh/classes/Net/SSH.html#method-c-start
-#
+
 # Global options
 # --------------
 #  set :ssh_options, {
@@ -46,7 +46,7 @@ server '52.198.138.201', user: 'ec2-user', roles: %w{app db web}
 #    forward_agent: false,
 #    auth_methods: %w(password)
 #  }
-#
+
 # The server-based syntax can be used to override options:
 # ------------------------------------
 # server "example.com",
