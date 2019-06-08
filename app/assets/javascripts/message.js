@@ -58,37 +58,41 @@ $(function(){
   })
 
   var reloadMessages = function() {
-    //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
-    var last_message_id = $('.message').last().data('id');
-    // index.html.hamlで定義したdata属性からdata関数を使ってgroup_idを取得
-    var group_id = $('.current-group').data('group_id');
-    var url = `/groups/${group_id}/api/messages`
     
-    $.ajax({
-      //ルーティングで設定した通りのURLを指定
-      url: url, // urlキーにgroup_idを式展開指定する
-      //ルーティングで設定した通りhttpメソッドをgetに指定
-      type: 'get',
-      dataType: 'json',
-      //dataオプションでリクエストに値を含める
-      data: {id: last_message_id, group_id: group_id} // group_idキーと値を追加
-    })
+    if (window.location.href.match(/\/groups\/\d+\/messages/) ){
+    //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
+      var last_message_id = $('.message').last().data('id');
+      // index.html.hamlで定義したdata属性からdata関数を使ってgroup_idを取得
+      var group_id = $('.current-group').data('group_id');
 
-    .done(function(messages) {
-       //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
-      messages.forEach(function(message){
-      //メッセージが入ったHTMLを取得
-      var insertHTML = buildHTML(message);
-      //メッセージを追加
-      $('.messages').append(insertHTML)
-      ScrollToNewMessage();
-      });
-    })
-  
-    .fail(function(data) {
-      alert('自動更新に失敗しました');
-    })
-   };
+      var url = `\/groups/${group_id}/api/messages`
+   
+      $.ajax({
+        //ルーティングで設定した通りのURLを指定
+        url: url, // urlキーにgroup_idを式展開指定する
+        //ルーティングで設定した通りhttpメソッドをgetに指定
+        type: 'get',
+        dataType: 'json',
+        //dataオプションでリクエストに値を含める
+        data: {id: last_message_id, group_id: group_id} // group_idキーと値を追加
+      })
+
+      .done(function(messages) {
+        //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
+        messages.forEach(function(message){
+        //メッセージが入ったHTMLを取得
+        var insertHTML = buildHTML(message);
+        //メッセージを追加
+        $('.messages').append(insertHTML)
+        ScrollToNewMessage();
+        });
+      })
+    
+      .fail(function(data) {
+        alert('自動更新に失敗しました');
+      })
+    };
+  };
 
    setInterval(reloadMessages, 5000);
    
