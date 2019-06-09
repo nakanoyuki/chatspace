@@ -29,21 +29,25 @@ $(function() {
     member_user.append(html);
   }
 
-  $(function() {
-    $("#user-search-field").on("keyup",function() {
-    
-        var input = $("#user-search-field").val();
 
+  $(function() {
+    $("#user-search-field").keyup(function(event) {
+
+        var input = $("#user-search-field").val();
+      
         $.ajax({
           type: 'GET',
           url: '/users',
-          data: { name: input },
+          data: { name: input},
           dataType: 'json'
         })
 
         .done(function(users){
           $('#user-search-result').empty();
-          if (users.length !==0){
+
+          var number = $("#user-search-field").val().length;
+        
+          if (users.length !==0 && number.length !==0 && input!==''){
               users.forEach(function(user){
                   appendUser(user);
               });
@@ -60,6 +64,7 @@ $(function() {
   
   
     $(document).on("click", ".user-search-add", function () {
+
       var name = $(this).data("user-name");
       var user_id = $(this).data("user-id");
     
@@ -69,6 +74,7 @@ $(function() {
   
     $(document).on("click", ".user-search-remove", function () {
       $(this).parent().remove();
+      
     });
   });
 });

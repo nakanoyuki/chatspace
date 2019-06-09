@@ -14,11 +14,12 @@ $(function(){
         </div>
         <div class="message__text">
          
-        <p class="message__text__content">
+        <div class="message__text__content">
         ${ json.content }
+        <div class="message__text__image">
         ${image}
-        </p>
-         </div>
+        </div>
+        </div>
       </div>`
       return html;
     };
@@ -65,7 +66,8 @@ $(function(){
       // index.html.hamlで定義したdata属性からdata関数を使ってgroup_idを取得
       var group_id = $('.current-group').data('group_id');
 
-      var url = `\/groups/${group_id}/api/messages`
+      var url = `/groups/${group_id}/api/messages`
+  
    
       $.ajax({
         //ルーティングで設定した通りのURLを指定
